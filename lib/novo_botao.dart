@@ -1,10 +1,11 @@
 import 'package:flutter/material.dart';
 import 'package:audioplayers/audioplayers.dart';
 
+//Instanciando AudioPlayer
 final _audioPlayer = AudioPlayer();
 
-Widget newButton(MaterialColor backgroundColor, IconData icon,
-    String buttonName, String funcao) {
+//Método que retorna um Widget Elevated Button
+Widget newButton(MaterialColor backgroundColor, IconData icon, String buttonName, String funcao) {
   return ElevatedButton(
     onPressed: () {
       choice(funcao);
@@ -24,14 +25,14 @@ Widget newButton(MaterialColor backgroundColor, IconData icon,
         ),
         Text(
           buttonName,
-          style: const TextStyle(
-              color: Colors.white, fontSize: 24, fontWeight: FontWeight.bold),
+          style: const TextStyle(color: Colors.white, fontSize: 24, fontWeight: FontWeight.bold),
         ),
       ],
     ),
   );
 }
 
+//Switch Case que te faz escolher qual método será chamado ao clicar no botão escolhido
 void choice(String choice) {
   switch (choice) {
     case "Printar":
@@ -43,70 +44,8 @@ void choice(String choice) {
   }
 }
 
-final List<String> choices = [
-  'Printar',
-  'Comer',
-  'Printar',
-  'Comer',
-  'Printar',
-  'Comer',
-  'Printar',
-  'Comer',
-  'Printar',
-  'Comer',
-  'Printar',
-  'Comer',
-  'Printar',
-  'Comer',
-];
-
-final List<MaterialColor> cores = [
-  Colors.red,
-  Colors.blue,
-  Colors.orange,
-  Colors.blueGrey,
-  Colors.amber,
-  Colors.green,
-  Colors.purple,
-  Colors.red,
-  Colors.blue,
-  Colors.orange,
-  Colors.blueGrey,
-  Colors.amber,
-  Colors.green,
-  Colors.purple,
-];
-
-final List<IconData> icones = [
-  Icons.favorite,
-  Icons.star,
-  Icons.shopping_cart,
-  Icons.camera,
-  Icons.alarm,
-  Icons.email,
-  Icons.music_note,
-  Icons.directions_car,
-  Icons.phone,
-  Icons.home,
-  Icons.air,
-  Icons.restaurant,
-];
-
-final List<String> nomesIcones = [
-  'Favorito',
-  'Estrela',
-  'Carrinho',
-  'Câmera',
-  'Alarme',
-  'Email',
-  'Nota',
-  'Carro',
-  'Telefone',
-  'Casa',
-  'Ar',
-  'Restaurante',
-];
-
+//Método que da play na música
 void _playSound() async {
+  await _audioPlayer.stop();
   await _audioPlayer.play(DeviceFileSource('lib/trombeta.mp3'));
 }

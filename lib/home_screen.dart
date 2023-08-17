@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'novo_botao.dart';
+import 'lists.dart';
 
 class HomeScreen extends StatefulWidget {
   const HomeScreen({super.key});
@@ -45,8 +46,7 @@ class _HomeScreenState extends State<HomeScreen> {
           child: Wrap(
             runSpacing: 10,
             children: [
-              for (int i = 0; i < 12; i++)
-                newButton(cores[i], icones[i], nomesIcones[i], choices[i]),
+              for (int i = 0; i < 12; i++) newButton(cores[i], icones[i], nomesIcones[i], choices[i]),
             ],
           ),
         ),
