@@ -24,12 +24,12 @@ class _HomeScreenState extends State<HomeScreen> {
               child: Text(''),
             ),
             ListTile(
-              leading: Icon(Icons.home),
+              leading: const Icon(Icons.home),
               title: const Text('Home'),
               onTap: () {},
             ),
             ListTile(
-              leading: Icon(Icons.settings),
+              leading: const Icon(Icons.settings),
               title: const Text('Settings'),
               onTap: () {},
             ),
@@ -43,11 +43,18 @@ class _HomeScreenState extends State<HomeScreen> {
       body: SingleChildScrollView(
         child: Padding(
           padding: const EdgeInsets.all(8.0),
-          child: Wrap(
-            runSpacing: 10,
-            children: [
-              for (int i = 0; i < 12; i++) newButton(cores[i], icones[i], nomesIcones[i], choices[i]),
-            ],
+          child: FocusScope(
+            child: Wrap(
+              runSpacing: 10,
+              children: [
+                for (int i = 0; i < 12; i++)
+                  NovoBotao(
+                      backgroundColor: cores[i],
+                      icon: icones[i],
+                      buttonName: nomesIcones[i],
+                      funcao: choices[i]),
+              ],
+            ),
           ),
         ),
       ),
