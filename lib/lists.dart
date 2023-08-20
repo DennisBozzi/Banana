@@ -1,3 +1,4 @@
+import 'package:audioplayers/audioplayers.dart';
 import 'package:flutter/material.dart';
 
 final List<String> choices = [
@@ -63,3 +64,4 @@ final List<String> nomesIcones = [
   'Ar',
   'Restaurante',
 ];
+

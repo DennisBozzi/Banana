@@ -49,10 +49,10 @@ class _HomeScreenState extends State<HomeScreen> {
               children: [
                 for (int i = 0; i < 12; i++)
                   NovoBotao(
-                      backgroundColor: cores[i],
-                      icon: icones[i],
-                      buttonName: nomesIcones[i],
-                      funcao: choices[i]),
+                    backgroundColor: cores[i],
+                    icon: icones[i],
+                    buttonName: nomesIcones[i],
+                  )
               ],
             ),
           ),
