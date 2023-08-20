@@ -37,7 +37,8 @@ class _HomeScreenState extends State<HomeScreen> {
         ),
       ),
       appBar: AppBar(
-        title: const Text('Home'),
+        title: const Text('Ban🍌na'),
+        centerTitle: true,
         elevation: 0.0,
       ),
       body: SingleChildScrollView(
@@ -52,6 +53,7 @@ class _HomeScreenState extends State<HomeScreen> {
                     backgroundColor: cores[i],
                     icon: icones[i],
                     buttonName: nomesIcones[i],
+                    musica: i,
                   )
               ],
             ),

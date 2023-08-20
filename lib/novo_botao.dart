@@ -1,3 +1,4 @@
+import 'package:banana/lists.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:audioplayers/audioplayers.dart';
@@ -6,11 +7,13 @@ class NovoBotao extends StatefulWidget {
   final MaterialColor backgroundColor;
   final IconData icon;
   final String buttonName;
+  final int musica;
 
   NovoBotao({
     required this.backgroundColor,
     required this.icon,
     required this.buttonName,
+    required this.musica
   });
 
   @override
@@ -50,8 +53,9 @@ class _NovoBotaoState extends State<NovoBotao> {
 
   //Método que da play na música
   void _playSound() async {
+    await _audioPlayer.setReleaseMode(ReleaseMode.loop);
     await _audioPlayer.stop();
-    await _audioPlayer.play(DeviceFileSource('lib/assets/trombeta.mp3'));
+    await _audioPlayer.play(DeviceFileSource(musica(widget.musica)));
   }
 
   void _showModal(BuildContext context) {
@@ -74,8 +78,14 @@ class _NovoBotaoState extends State<NovoBotao> {
               child: Column(
                 mainAxisAlignment: MainAxisAlignment.center,
                 children: [
-                  Icon(widget.icon),
-                  Text(widget.buttonName),
+                  Icon(
+                    widget.icon,
+                    size: 200,
+                  ),
+                  Text(
+                    widget.buttonName,
+                    style: const TextStyle(fontSize: 76),
+                  ),
                 ],
               ),
             ),
